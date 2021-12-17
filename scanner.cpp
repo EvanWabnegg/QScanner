@@ -32,6 +32,7 @@ void Scanner::on_scanButton_clicked()
         }
         else
         {
+            socket->disconnectFromHost();
             resultText->append("port: " + QString::number(p) + " connected");
         }
         resultText->show();
