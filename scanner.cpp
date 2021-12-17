@@ -28,12 +28,14 @@ void Scanner::on_scanButton_clicked()
         socket->connectToHost(m_hostnameString,p);
         if(!socket->waitForConnected(1000))
         {
-            resultText->append("port: " + QString::number(p) + " not connected");
+            this->resultText->setTextColor(QColor("red"));
+            resultText->append("port: " + QString::number(p) + " is not connected");
         }
         else
         {
             socket->disconnectFromHost();
-            resultText->append("port: " + QString::number(p) + " connected");
+            this->resultText->setTextColor(QColor("green"));
+            resultText->append("port: " + QString::number(p) + " is connected");
         }
         resultText->show();
     }
